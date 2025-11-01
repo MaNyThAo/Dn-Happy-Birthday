@@ -6,7 +6,13 @@
   --bg2: #d8c9ff;
 }
 body {
-  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);overflow: hidden;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 800% 800%;
+  animation: pinkFlow 12s ease infinite;
+  color: #ffffff;
+  transition: background 0.8s ease-in-out;
   font-family: "Poppins", Inter, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
 }
@@ -16,6 +22,7 @@ body {
   width: 560px;
   height: 380px;
   position: relative;
+  overflow: hidden;
   margin: 40px auto 10px;
   transform: translateZ(0);
   filter: drop-shadow(0 10px 30px rgba(130, 60, 90, 0.08));
@@ -343,11 +350,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding: 90px 1rem 50px;
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 182, 193, 0.25),
-    rgba(0, 0, 0, 0.85)
-  );
+  background: transparent !important;
   backdrop-filter: blur(8px);
   z-index: 110;
   opacity: 0;
@@ -355,13 +358,23 @@ body {
   overflow-y: auto;
   transition: opacity 0.6s ease, transform 0.6s ease;
   animation: fadeIn 0.8s ease forwards;
+    box-shadow: none !important;
+}
+.overlay,
+.modal-background {
+  background: rgba(255, 192, 203, 0.25) !important;
+  backdrop-filter: blur(6px);
 }
 .birthday-content.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-
+@keyframes pinkFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* 🎀 Khung ảnh cô gái sinh nhật – gọn, không dư viền đen */
 .birthday-photo {
   width: 380px;
@@ -833,116 +846,156 @@ body {
     font-size: 1.1rem; /* ↓ Giảm nhẹ */
     margin-bottom: 0.3rem;
   }
-  /* 🌻 Responsive tổng thể chuẩn cho điện thoại & màn nhỏ */
-@media (max-width: 768px) {
-  body {
+
+/* ===============================
+   📱 Android & iPhone lớn hơn (6.5 inch)
+   =============================== */
+@media (min-width: 376px) and (max-width: 480px) {
+  html, body {
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background: radial-gradient(circle at top, rgba(255,182,193,0.25), rgba(0,0,0,0.85));
+    overflow-y: auto; /* Cho phép cuộn dọc toàn bộ */
+    height: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .birthday-content {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    text-align: center;
     width: 100%;
-    min-height: 100vh;
-    gap: 1.2rem;
-    padding: 90px 1rem 60px;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 70px 14px 110px;
+    gap: 18px;
+    box-sizing: border-box;
   }
 
-  /* Ảnh sinh nhật */
   .birthday-photo {
-    width: 95%;
-    max-width: 420px;
-    height: auto;
+    width: 94%;
+    max-width: 380px;
     border-radius: 18px;
     overflow: hidden;
-    background: #fff;
-    box-shadow: 0 8px 28px rgba(255, 120, 150, 0.4);
-    margin-bottom: 1rem;
+    box-shadow: 0 6px 28px rgba(255, 120, 150, 0.35);
   }
 
   .birthday-photo img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: inherit;
     display: block;
   }
 
-  /* Hộp lời chúc */
   .message-box {
-    width: 95%;
-    max-width: 420px;
+    width: 94%;
+    max-width: 380px;
     border-radius: 18px;
     background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+    box-shadow: 0 6px 28px rgba(255, 100, 150, 0.35);
     color: #fff;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 24px 18px;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    padding: 20px 16px;
     text-align: center;
-    box-shadow: 0 8px 35px rgba(255, 100, 150, 0.3);
+    box-sizing: border-box;
   }
 
   .message-box h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.25rem;
     margin-bottom: 0.8rem;
   }
 
-  .message-box p {
-    margin-bottom: 0.8rem;
-  }
-
-  .message-box ul {
-    list-style: none;
-    margin: 0.6rem 0 1rem;
-    padding: 0;
-  }
-
-  .message-box li {
-    margin: 0.4rem 0;
-    font-size: 0.95rem;
-  }
-
-  /* Icon bánh sinh nhật mini 🎂 */
+  /* Icon bánh sinh nhật mini 🎂 căn hợp lý góc phải */
   .cake.mini {
     position: fixed;
-    top: 65px;
-    right: 20px;
-    transform: scale(0.6);
+    top: 60px;
+    right: 16px;
+    transform: scale(0.68);
     z-index: 999;
-    transition: all 0.4s ease;
   }
 
-  /* Ẩn hiệu ứng nền thừa */
-  .glow {
-    display: none !important;
+  /* Emoji / icon bay nhỏ gọn hơn, không tràn ra ngoài khung */
+  .floating-icon, .floating-heart {
+    max-width: 40px;
+    max-height: 40px;
+    will-change: transform, opacity;
+  }
+
+  /* Giới hạn chiều cao modal (nếu có) để có thể cuộn hết */
+  .birthday-modal, .birthday-content.visible {
+    overflow-y: auto;
+    max-height: 100vh;
   }
 }
+/* ===============================
+   🍎 iPhone SE (375x667)
+   =============================== */
+@media (max-width: 375px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-/* 💻 Tablet hoặc xoay ngang */
-@media (min-width: 769px) and (max-width: 1024px) {
   .birthday-content {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 120px 2rem;
-    gap: 1.5rem;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 60px 10px 100px;
+    gap: 16px;
+    box-sizing: border-box;
   }
 
-  .birthday-photo,
+  .birthday-photo {
+    width: 95%;
+    max-width: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 22px rgba(255, 120, 150, 0.35);
+  }
+
+  .birthday-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
   .message-box {
-    width: 90%;
-    max-width: 480px;
+    width: 95%;
+    max-width: 340px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+    box-shadow: 0 6px 24px rgba(255, 100, 150, 0.35);
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 16px 12px;
+    text-align: center;
+  }
+
+  .message-box h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .message-box li, .message-box p {
+    font-size: 0.88rem;
+    margin: 0.35rem 0;
+  }
+
+  /* Icon bánh sinh nhật mini 🎂 vừa góc trên phải */
+  .cake.mini {
+    position: fixed;
+    top: 54px;
+    right: 12px;
+    transform: scale(0.58);
+    z-index: 999;
+  }
+
+  /* Emoji / icon bay nhỏ hơn nữa để tránh che chữ */
+  .floating-icon, .floating-heart {
+    max-width: 34px;
+    max-height: 34px;
   }
 }
-
