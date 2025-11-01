@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chúc mừng sinh nhật Hoàng Thị Hường 💞</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
@@ -13,10 +13,10 @@
     <h1
       class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mt-6 z-20"
     >
-     💕  Chúc mừng sinh nhật <span class="teals"> Hoàng Thị Hường 💕</span>     
+      💕 Chúc mừng sinh nhật <span class="teals"> Hoàng Thị Hường 💕</span>
     </h1>
 
-    <div id="love-message" ></div>
+    <div id="love-message"></div>
 
     <div class="stage z-10" id="stage">
       <!-- glow blobs behind -->
@@ -39,7 +39,6 @@
         <img src="Hường/4.jpg" alt="" />
       </div>
 
-
       <!-- little heart floating near tiles -->
       <div class="little-heart" style="left: 68%; top: 46%">💗</div>
     </div>
@@ -50,7 +49,8 @@
         <div class="cake-emoji">🎂</div>
         <div class="knife" aria-hidden="true">🔪</div>
       </div>
-      <div class="birthday-text"
+      <div
+        class="birthday-text"
         style="
           font-size: 1rem;
           color: #fff;
@@ -74,23 +74,43 @@
     <!-- Birthday content with photo and message (hidden until cake expanded) -->
     <div class="birthday-content" aria-hidden="true">
       <div class="birthday-photo">
-        <img src="Hường/1.jpg" alt="Birthday Girl">
+        <img src="Hường/1.jpg" alt="Birthday Girl" />
       </div>
       <div class="message-container">
         <div class="message-box">
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; font-weight: bold;">💝 Gửi Hường thân yêu!</h3>
-          <p style="margin-bottom: 1rem;">Chúc em một sinh nhật thật đặc biệt và ý nghĩa! 🌟</p>
-          <p style="margin-bottom: 1rem;">Mong rằng tuổi mới của em sẽ luôn tràn đầy:</p>
-          <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-            <li>✨ Niềm vui và hạnh phúc</li>
-            <li>🌸 Nụ cười và sự lạc quan</li>
-            <li>💫 Thành công trong học tập</li>
-            <li>💖 Tình yêu thương từ mọi người</li>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; font-weight: bold">
+            🌻 Gửi Hường thân yêu 💛
+          </h3>
+
+          <p style="margin-bottom: 1rem">
+            Chúc em một sinh nhật thật ấm áp và rực rỡ như những bông hướng
+            dương em yêu! 🌞
+          </p>
+
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem">
+            <li>✨ Luôn giữ nụ cười tươi như nắng</li>
+            <li>💖 Gặp nhiều niềm vui và yêu thương</li>
+            <li>🎂 Thành công trong học tập và ước mơ</li>
+            <li>🌸 Mỗi ngày đều nhẹ nhàng và bình yên</li>
           </ul>
-          <p>Cầu mong mọi ước mơ của em đều thành hiện thực! Hãy luôn giữ nụ cười tươi tắn và niềm tin vào cuộc sống nhé! 🌈</p>
+
+          <p>
+            Cô gái tuổi Khỉ ơi, hãy luôn hướng về ánh sáng và sống thật rực rỡ
+            nhé! 🌻
+          </p>
         </div>
       </div>
     </div>
+
+    <button
+      id="playMusicBtn"
+      class="fixed bottom-6 right-6 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg transition-transform duration-300 z-50"
+    >
+      🎵 Mở nhạc
+    </button>
+    <!-- Audio -->
+    <audio id="birthdayMusic" src="audio/Simple Love.mp3"></audio>
+
     <script src="index.js"></script>
   </body>
 </html>

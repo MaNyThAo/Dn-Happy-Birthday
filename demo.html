@@ -1,216 +1,101 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chúc mừng sinh nhật Hường 💖</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at center, #1c1c1f, #000);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chúc mừng sinh nhật Linh 💖</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6f0, #ffcce0, #ff99c8);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    .container {
-      display: flex;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      animation: fadeIn 1.5s ease;
-    }
+  h1 {
+    color: #ff1493;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
 
-    .photo {
-      width: 320px;
-      height: 420px;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
+  p {
+    color: #ff4d88;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-right: 2px solid rgba(255, 255, 255, 0.2);
-    }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4; }
+    to { text-shadow: 0 0 30px #ff1493, 0 0 60px #ff69b4; }
+  }
 
-    .message {
-      background: #ffb6c1;
-      color: #fff;
-      padding: 30px;
-      width: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-      position: relative;
-    }
+  /* Trái tim bay */
+  .heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff3366;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+  }
 
-    .message h2 {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.8); opacity: 0; }
+  }
 
-    .message p {
-      color: #fff;
-      line-height: 1.6;
-      font-size: 15px;
-    }
+  button {
+    background: #fff;
+    color: #ff1493;
+    border: 2px solid #ff1493;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s;
+  }
 
-    .highlight {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.25);
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-weight: bold;
-      color: #fff;
-      width: fit-content;
-      margin: 10px 0;
-      animation: popUp 1s ease;
-    }
-
-    .highlight::before {
-      content: "🎂";
-      margin-right: 8px;
-    }
-
-    /* Cake animation */
-    .cake {
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 40px;
-      cursor: pointer;
-      transition: all 0.6s ease;
-    }
-
-    .cake.expanded {
-      transform: translate(-50%, -120px) scale(1.2);
-    }
-
-    .cake.cut {
-      transform: translate(-50%, -120px) rotate(-15deg);
-    }
-
-    .cake-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    .cake-overlay.visible {
-      display: flex;
-    }
-
-    .birthday-content {
-      background: #ffb6c1;
-      padding: 20px;
-      border-radius: 20px;
-      text-align: center;
-      color: #fff;
-      width: 320px;
-      transform: scale(0.8);
-      opacity: 0;
-      transition: all 0.5s ease;
-    }
-
-    .birthday-content.visible {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes popUp {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-  </style>
+  button:hover {
+    background: #ff1493;
+    color: #fff;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="photo">
-      <img src="Hường/1.jpg"Hường" />
-      <div class="cake">🎂</div>
-    </div>
-    <div class="message">
-      <h2>💝 Gửi Hường thân yêu!</h2>
-      <p>Chúc em một sinh nhật thật đặc biệt và ý nghĩa! 🌟</p>
-      <p>Mong rằng tuổi mới của em sẽ luôn tràn đầy:</p>
-      <ul style="list-style:none; padding-left:10px;">
-        <li>✨ Niềm vui và hạnh phúc</li>
-        <li>🌸 Nụ cười và sự lạc quan</li>
-        <li>🎤 Thành công trong học tập</li>
-        <li>💖 Tình yêu thương từ mọi người</li>
-      </ul>
-      <div class="highlight">Happy Birthday!</div>
-      <p>Cầu mong mọi ước mơ của em đều thành hiện thực! 🌈</p>
-    </div>
-  </div>
+  <h1>💖 Chúc mừng sinh nhật Linh 💖</h1>
+  <p>Chúc Linh một ngày sinh nhật thật ấm áp, nhẹ nhàng và đầy yêu thương 🌸</p>
+  <button onclick="playMusic()">🎵 Bấm để nghe nhạc</button>
 
-  <!-- Overlay popup -->
-  <div class="cake-overlay" id="overlay">
-    <div class="birthday-content" id="birthdayContent">
-      <h2>🎉 Happy Birthday Hường 🎉</h2>
-      <p>Chúc em luôn vui vẻ, xinh đẹp và tràn đầy năng lượng nhé! 💕</p>
-    </div>
-  </div>
+  <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b4c2c7f93.mp3?filename=happy-birthday-to-you-19023.mp3"></audio>
 
   <script>
-    const cake = document.querySelector('.cake');
-    const overlay = document.getElementById('overlay');
-    const birthdayContent = document.getElementById('birthdayContent');
-    let expanded = false;
-    let cut = false;
+    // Tạo nhiều trái tim lơ lửng bay lên
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
 
-    cake.addEventListener('click', () => {
-      if (!expanded) {
-        cake.classList.add('expanded');
-        overlay.classList.add('visible');
-        setTimeout(() => birthdayContent.classList.add('visible'), 200);
-        expanded = true;
-        return;
-      }
-      if (!cut) {
-        cake.classList.add('cut');
-        cut = true;
-        return;
-      }
-      cake.classList.remove('expanded', 'cut');
-      birthdayContent.classList.remove('visible');
-      overlay.classList.remove('visible');
-      expanded = false;
-      cut = false;
-    });
+    setInterval(createHeart, 200);
 
-    overlay.addEventListener('click', () => {
-      cake.classList.remove('expanded', 'cut');
-      birthdayContent.classList.remove('visible');
-      overlay.classList.remove('visible');
-      expanded = false;
-      cut = false;
-    });
+    // Nhạc nền
+    function playMusic() {
+      const music = document.getElementById("music");
+      music.play();
+    }
   </script>
 </body>
 </html>

@@ -1,573 +1,811 @@
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
-  :root {
-        --main-color: #ff6b81; /* màu chủ đạo - đổi tại đây */
-        --bg1: #f6d3ea;
-        --bg2: #d8c9ff;
-      }
-      body {
-        background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-        overflow: hidden;
-        font-family: 'Poppins', Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-      }
+:root {
+  --main-color: #ff6b81; /* màu chủ đạo - đổi tại đây */
+  --bg1: #f6d3ea;
+  --bg2: #d8c9ff;
+}
+body {
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  overflow: hidden;
+  font-family: "Poppins", Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
 
-      /* Container cho nhóm ảnh */
-      .stage {
-        width: 560px;
-        height: 380px;
-        position: relative;
-        margin: 40px auto 10px;
-        transform: translateZ(0);
-        filter: drop-shadow(0 10px 30px rgba(130, 60, 90, 0.08));
-      }
+/* Container cho nhóm ảnh */
+.stage {
+  width: 560px;
+  height: 380px;
+  position: relative;
+  margin: 40px auto 10px;
+  transform: translateZ(0);
+  filter: drop-shadow(0 10px 30px rgba(130, 60, 90, 0.08));
+}
 
-      /* Tile ảnh vuông bo góc */
-      .tile {
-        position: absolute;
-        width: 140px;
-        height: 140px;
-        border-radius: 18px;
-        overflow: hidden;
-        cursor: pointer;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 25px rgba(255, 100, 130, 0.12);
-        transition: transform 0.35s ease, box-shadow 0.35s ease;
-        will-change: transform;
-        border: 2px solid rgba(255, 255, 255, 0.35);
-      }
+/* Tile ảnh vuông bo góc */
+.tile {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(255, 100, 130, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
 
-      .tile::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        box-shadow: 0 10px 30px rgba(255, 105, 135, 0.12),
-          inset 0 0 40px rgba(255, 105, 135, 0.04);
-        pointer-events: none;
-      }
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 10px 30px rgba(255, 105, 135, 0.12),
+    inset 0 0 40px rgba(255, 105, 135, 0.04);
+  pointer-events: none;
+}
 
-      .tile:hover {
-        transform: translateY(-10px) scale(1.06) rotate(0deg);
-        box-shadow: 0 20px 40px rgba(255, 100, 130, 0.18);
-      }
+.tile:hover {
+  transform: translateY(-10px) scale(1.06) rotate(0deg);
+  box-shadow: 0 20px 40px rgba(255, 100, 130, 0.18);
+}
 
-      /* Các đường chuyển động khác nhau - sử dụng keyframes + biến để dễ tinh chỉnh */
-      @keyframes orbitA {
-        0% {
-          transform: translate(0, 0) rotate(-12deg);
-        }
-        50% {
-          transform: translate(-18px, -22px) rotate(-18deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(-12deg);
-        }
-      }
-      @keyframes orbitB {
-        0% {
-          transform: translate(0, 0) rotate(8deg);
-        }
-        50% {
-          transform: translate(20px, -28px) rotate(14deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(8deg);
-        }
-      }
-      @keyframes orbitC {
-        0% {
-          transform: translate(0, 0) rotate(20deg);
-        }
-        50% {
-          transform: translate(-14px, 22px) rotate(26deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(20deg);
-        }
-      }
-      @keyframes orbitD {
-        0% {
-          transform: translate(0, 0) rotate(-30deg);
-        }
-        50% {
-          transform: translate(28px, 18px) rotate(-24deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(-30deg);
-        }
-      }
+/* Các đường chuyển động khác nhau - sử dụng keyframes + biến để dễ tinh chỉnh */
+@keyframes orbitA {
+  0% {
+    transform: translate(0, 0) rotate(-12deg);
+  }
+  50% {
+    transform: translate(-18px, -22px) rotate(-18deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-12deg);
+  }
+}
+@keyframes orbitB {
+  0% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+  50% {
+    transform: translate(20px, -28px) rotate(14deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+}
+@keyframes orbitC {
+  0% {
+    transform: translate(0, 0) rotate(20deg);
+  }
+  50% {
+    transform: translate(-14px, 22px) rotate(26deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(20deg);
+  }
+}
+@keyframes orbitD {
+  0% {
+    transform: translate(0, 0) rotate(-30deg);
+  }
+  50% {
+    transform: translate(28px, 18px) rotate(-24deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-30deg);
+  }
+}
 
-      /* đặt vị trí ban đầu giống ảnh mẫu */
-      .t1 {
-        left: 60px;
-        top: 30px;
-        transform: rotate(-12deg);
-        animation: orbitA 6s ease-in-out infinite;
-      }
-      .t2 {
-        right: 40px;
-        top: 20px;
-        transform: rotate(8deg);
-        animation: orbitB 5.5s ease-in-out infinite;
-      }
-      .t3 {
-        left: 110px;
-        bottom: 30px;
-        transform: rotate(20deg);
-        animation: orbitC 6.8s ease-in-out infinite;
-      }
-      .t4 {
-        right: 120px;
-        bottom: 50px;
-        transform: rotate(-30deg);
-        animation: orbitD 6.2s ease-in-out infinite;
-      }
+/* đặt vị trí ban đầu giống ảnh mẫu */
+.t1 {
+  left: 60px;
+  top: 30px;
+  transform: rotate(-12deg);
+  animation: orbitA 6s ease-in-out infinite;
+}
+.t2 {
+  right: 40px;
+  top: 20px;
+  transform: rotate(8deg);
+  animation: orbitB 5.5s ease-in-out infinite;
+}
+.t3 {
+  left: 110px;
+  bottom: 30px;
+  transform: rotate(20deg);
+  animation: orbitC 6.8s ease-in-out infinite;
+}
+.t4 {
+  right: 120px;
+  bottom: 50px;
+  transform: rotate(-30deg);
+  animation: orbitD 6.2s ease-in-out infinite;
+}
 
-      /* hiệu ứng ánh hồng mờ phía sau từng ảnh */
-      .glow {
-        position: absolute;
-        inset: auto;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        filter: blur(18px);
-        opacity: 0.55;
-        z-index: 0;
-        pointer-events: none;
-      }
-      .g1 {
-        left: 70px;
-        top: 40px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 120, 140, 0.9) 0%,
-          rgba(255, 120, 140, 0) 50%
-        );
-      }
-      .g2 {
-        right: 50px;
-        top: 30px;
-        background: radial-gradient(
-          circle,
-          rgba(200, 140, 255, 0.9) 0%,
-          rgba(200, 140, 255, 0) 60%
-        );
-      }
-      .g3 {
-        left: 120px;
-        bottom: 40px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 190, 200, 0.9) 0%,
-          rgba(255, 190, 200, 0) 60%
-        );
-      }
-      .g4 {
-        right: 130px;
-        bottom: 60px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 150, 170, 0.88) 0%,
-          rgba(255, 150, 170, 0) 60%
-        );
-      }
+/* hiệu ứng ánh hồng mờ phía sau từng ảnh */
+.glow {
+  position: absolute;
+  inset: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+}
+.g1 {
+  left: 70px;
+  top: 40px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 120, 140, 0.9) 0%,
+    rgba(255, 120, 140, 0) 50%
+  );
+}
+.g2 {
+  right: 50px;
+  top: 30px;
+  background: radial-gradient(
+    circle,
+    rgba(200, 140, 255, 0.9) 0%,
+    rgba(200, 140, 255, 0) 60%
+  );
+}
+.g3 {
+  left: 120px;
+  bottom: 40px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 190, 200, 0.9) 0%,
+    rgba(255, 190, 200, 0) 60%
+  );
+}
+.g4 {
+  right: 130px;
+  bottom: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 150, 170, 0.88) 0%,
+    rgba(255, 150, 170, 0) 60%
+  );
+}
 
-      /* tim nhỏ */
-      .little-heart {
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        transform: translate(-50%, -50%);
-        animation: beat 1.4s ease-in-out infinite;
-        z-index: 5;
-        filter: drop-shadow(0 6px 10px rgba(255, 100, 140, 0.18));
-      }
-      @keyframes beat {
-        0%,
-        100% {
-          transform: scale(0.9) translateY(0);
-        }
-        50% {
-          transform: scale(1.12) translateY(-8px);
-        }
-      }
+/* tim nhỏ */
+.little-heart {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  animation: beat 1.4s ease-in-out infinite;
+  z-index: 5;
+  filter: drop-shadow(0 6px 10px rgba(255, 100, 140, 0.18));
+}
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(0.9) translateY(0);
+  }
+  50% {
+    transform: scale(1.12) translateY(-8px);
+  }
+}
 
-      /* Lời chúc - màu chủ đạo */
-      #love-message {
-        margin-top: 12px;
-        font-size: 1.35rem;
-        color: var(--main-color);
-        text-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        font-weight: 600;
-        text-align: center;
-      }
+/* Lời chúc - màu chủ đạo */
+#love-message {
+  margin-top: 12px;
+  font-size: 1.35rem;
+  color: var(--main-color);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  text-align: center;
+}
 
-      /* Bánh sinh nhật - đặt giữa ở dưới màn hình (không chèn ảnh) */
-      .cake {
-        position: fixed;
-        left: 50%;
-        bottom: 10vh; /* đặt thấp xuống hơn để tránh chồng nội dung */
-        transform: translateX(-50%) translateY(0) scale(1);
-        z-index: 5; /* để không che lớp ảnh (`.stage` có z-index:10) */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* căn giữa bánh và nhãn */
-        gap: 8px;
-        cursor: pointer;
-        user-select: none;
-        transition: transform 260ms ease, box-shadow 260ms ease;
-      }
+/* Bánh sinh nhật - đặt giữa ở dưới màn hình (không chèn ảnh) */
+.cake {
+  position: fixed;
+  left: 50%;
+  bottom: 10vh; /* đặt thấp xuống hơn để tránh chồng nội dung */
+  transform: translateX(-50%) translateY(0) scale(1);
+  z-index: 5; /* để không che lớp ảnh (`.stage` có z-index:10) */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* căn giữa bánh và nhãn */
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
 
-      .cake-pieces {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 3.2rem;
-        position: relative;
-      }
+.cake-pieces {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 3.2rem;
+  position: relative;
+}
 
-      .cake .candle {
-        position: relative;
-        font-size: 1.2rem;
-        transform-origin: center bottom;
-        animation: candleFlicker 140ms infinite;
-        margin-right: 6px;
-      }
+.cake .candle {
+  position: relative;
+  font-size: 1.2rem;
+  transform-origin: center bottom;
+  animation: candleFlicker 140ms infinite;
+  margin-right: 6px;
+}
 
-      .cake-emoji { position: relative; z-index: 2; }
+.cake-emoji {
+  position: relative;
+  z-index: 2;
+}
 
-      /* dao đặt hơi chếch phía trên bánh (luôn hiển thị như hình mẫu) */
-      .knife {
-        position: absolute;
-        top: -36px;
-        right: -6px;
-        font-size: 1.6rem;
-        transform: rotate(-18deg) scale(1);
-        opacity: 1;
-        transition: all 220ms ease;
-        z-index: 40;
-        pointer-events: none;
-      }
+/* dao đặt hơi chếch phía trên bánh (luôn hiển thị như hình mẫu) */
+.knife {
+  position: absolute;
+  top: -36px;
+  right: -6px;
+  font-size: 1.6rem;
+  transform: rotate(-18deg) scale(1);
+  opacity: 1;
+  transition: all 220ms ease;
+  z-index: 40;
+  pointer-events: none;
+}
 
-      /* overlay when cake expanded */
-      .cake-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.7);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 240ms ease;
-        z-index: 80;
-        backdrop-filter: blur(6px);
-      }
-      .cake-overlay.visible { opacity: 1; visibility: visible; }
+/* overlay when cake expanded */
+.cake-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms ease;
+  z-index: 80;
+  backdrop-filter: blur(6px);
+}
+.cake-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
-      .cake.expanded {
-        left: 50%;
-        top: 50%;
-        right: auto;
-        transform: translate(-50%,-50%) scale(2.2);
-        animation: none;
-        z-index: 120;
-        align-items: center;
-      }
+.cake.expanded {
+  left: 50%;
+  top: 50%;
+  right: auto;
+  transform: translate(-50%, -50%) scale(2.2);
+  animation: none;
+  z-index: 120;
+  align-items: center;
+}
 
-      .cake.expanded .cake-pieces { transform: scale(1.06); }
+.cake.expanded .cake-pieces {
+  transform: scale(1.06);
+}
 
-      /* badge 'Happy Birthday' nằm sang phải của bánh, tách ra khỏi nội dung */
-      .cake .birthday-text {
-        position: relative;
-        left: 0;
-        top: 0;
-        z-index: 30;
-        transform: none;
-        display: inline-block;
-        text-align: center;
-      }
+/* badge 'Happy Birthday' nằm sang phải của bánh, tách ra khỏi nội dung */
+.cake .birthday-text {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  transform: none;
+  display: inline-block;
+  text-align: center;
+}
 
-      .cake.expanded .birthday-text {
-        margin-top: 18px;
-        left: 0;
-        transform: translateY(6px) scale(1.12);
-        z-index: 130;
-      }
+.cake.expanded .birthday-text {
+  margin-top: 18px;
+  left: 0;
+  transform: translateY(6px) scale(1.12);
+  z-index: 130;
+}
 
-      .cake.cut .knife {
-        transform: translateY(8px) rotate(-85deg) scale(1);
-        right: -8px;
-      }
+.cake.cut .knife {
+  transform: translateY(8px) rotate(-85deg) scale(1);
+  right: -8px;
+}
 
-      @keyframes cakeFloat {
-        0% { transform: translateY(-50%) scale(1); }
-        50% { transform: translateY(calc(-50% - 6px)) scale(1); }
-        100% { transform: translateY(-50%) scale(1); }
-      }
+@keyframes cakeFloat {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(calc(-50% - 6px)) scale(1);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
 
-      @keyframes candleFlicker {
-        0% { transform: translateY(0) scaleY(1); }
-        50% { transform: translateY(-1px) scaleY(0.98); }
-        100% { transform: translateY(0) scaleY(1); }
-      }
+@keyframes candleFlicker {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-1px) scaleY(0.98);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
 
-      /* Birthday content overlay layout (hidden by default) */
-      .birthday-content {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: stretch; /* kéo hai cột cùng chiều cao */
-        justify-content: center;
-        gap: 2.5rem;
-        padding: 1.5rem;
-        z-index: 110;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 240ms ease 0.08s;
-        pointer-events: none;
-        flex-wrap: wrap;
-      }
-      .birthday-content.visible {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
+/* =============================== */
+/* 🎂 Bố cục sinh nhật lung linh & cân đối */
+/* =============================== */
+.birthday-content {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 90px 1rem 50px;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 182, 193, 0.25),
+    rgba(0, 0, 0, 0.85)
+  );
+  backdrop-filter: blur(8px);
+  z-index: 110;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation: fadeIn 0.8s ease forwards;
+}
+.birthday-content.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-      /* Photo panel: giữ toàn bộ ảnh (không crop), nền tối giống mockup */
-      .birthday-photo {
-        width: min(420px, 86vw);
-        height: min(560px, 78vh);
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-        transform: translateX(-12px) scale(0.98);
-        opacity: 0;
-        transition: all 360ms cubic-bezier(.2,.9,.2,1);
-        border: 6px solid rgba(255,255,255,0.04);
-        background: #0b0b0b; /* cho cảm giác khung ảnh tối */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .birthday-photo.visible { transform: translateX(0) scale(1); opacity: 1; }
+/* 🎀 Khung ảnh cô gái sinh nhật – gọn, không dư viền đen */
+.birthday-photo {
+  width: 380px;
+  height: 480px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffc1d8, #ffe6f0); /* viền nền hồng nhẹ */
+  box-shadow: 0 10px 35px rgba(255, 120, 160, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px; /* tạo khung viền mỏng xinh */
+}
 
-      .birthday-photo img {
-        /* Hiển thị nguyên ảnh, không cắt. Giữ tỉ lệ, vừa chiều cao khung. */
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        display: block;
-      }
+/* Ảnh hiển thị đầy đủ, không bị đen thừa */
+.birthday-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* tự cắt để vừa khung, không đen */
+  border-radius: 16px;
+  transition: transform 0.6s ease;
+}
 
-      .message-container {
-        max-width: 520px;
-        height: min(560px, 78vh); /* đảm bảo chiều cao bằng khung ảnh */
-        transform: translateX(18px) scale(0.98);
-        opacity: 0;
-        transition: all 360ms cubic-bezier(.2,.9,.2,1);
-        display: flex;
-        align-items: stretch;
-      }
-      .message-container.visible { transform: translateX(0) scale(1); opacity: 1; }
+.birthday-photo img:hover {
+  transform: scale(1.05);
+}
 
-      .message-box {
-        width: 100%;
-        background: linear-gradient(180deg, #ff5c8a 0%, #ffb3c0 100%); /* gradient đậm hơn */
-        color: #ffffff;
-        border-radius: 20px;
-        padding: 28px 30px;
-        box-shadow: 0 30px 60px rgba(10,10,10,0.45);
-        line-height: 1.7;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* canh vertically giữa nội dung */
-      }
-      .message-box h3 { font-size: 1.35rem; margin-bottom: 0.6rem; color: #fff; font-weight: 700; }
-      .message-box p, .message-box li { color: rgba(255,255,255,0.95); font-size: 1rem; }
-      .message-box ul { margin-left: 1.1rem; }
-      .message-box li { margin: 0.45rem 0; }
+/* Lời chúc sinh động */
+.message-box {
+  background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px 26px;
+  box-shadow: 0 10px 40px rgba(255, 100, 140, 0.35);
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  line-height: 1.7;
+  animation: fadeInUp 1.6s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
 
-      /* Responsive - cập nhật để tránh tràn và cân chỉnh cho điện thoại / tablet / laptop */
-      @media (max-width: 420px) {
-        /* Điện thoại nhỏ */
-        .stage {
-          width: calc(100% - 32px);
-          max-width: 420px;
-          height: 320px;
-          margin: 18px auto;
-          padding: 6px;
-        }
-        .tile {
-          width: 92px;
-          height: 92px;
-          border-radius: 12px;
-        }
-        /* dùng tỉ lệ/px hợp lý để tránh tràn */
-        .t1 {
-          left: 6%;
-          top: 10px;
-          transform: rotate(-10deg);
-          animation-duration: 5.6s;
-        }
-        .t2 {
-          right: 6%;
-          top: 10px;
-          transform: rotate(6deg);
-          animation-duration: 5.2s;
-        }
-        .t3 {
-          left: 18%;
-          bottom: 12px;
-          transform: rotate(18deg);
-          animation-duration: 6.2s;
-        }
-        .t4 {
-          right: 18%;
-          bottom: 18px;
-          transform: rotate(-24deg);
-          animation-duration: 5.8s;
-        }
-        .glow {
-          display: none;
-        }
-        #love-message {
-          font-size: 1rem;
-          margin-top: 8px;
-          padding: 0 14px;
-        }
-        .cake {
-          font-size: 1.2rem;
-          left: 50%;
-          bottom: 10vh;
-          transform: translateX(-50%) scale(0.9);
-          gap: 8px;
-          align-items: center;
-          z-index: 5;
-        }
-      }
+/* Icon trang trí góc hộp */
+.message-box::before {
+  content: "🎂🎉💖";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.2rem;
+  opacity: 0.85;
+  animation: sparkle 2.8s ease-in-out infinite;
+}
 
-      @media (min-width: 421px) and (max-width: 720px) {
-        /* Điện thoại lớn / small tablet */
-        .stage {
-          width: 92%;
-          max-width: 680px;
-          height: 340px;
-          margin: 24px auto;
-        }
-        .tile {
-          width: 110px;
-          height: 110px;
-          border-radius: 14px;
-        }
-        .t1 {
-          left: 7%;
-          top: 16px;
-          transform: rotate(-12deg);
-          animation-duration: 6s;
-        }
-        .t2 {
-          right: 7%;
-          top: 14px;
-          transform: rotate(8deg);
-          animation-duration: 5.6s;
-        }
-        .t3 {
-          left: 22%;
-          bottom: 18px;
-          transform: rotate(20deg);
-          animation-duration: 6.6s;
-        }
-        .t4 {
-          right: 22%;
-          bottom: 30px;
-          transform: rotate(-28deg);
-          animation-duration: 6s;
-        }
-        .glow {
-          opacity: 0.45;
-          filter: blur(14px);
-        }
-        #love-message {
-          font-size: 1.12rem;
-        }
-        .cake {
-          font-size: 1.4rem;
-          left: 50%;
-          bottom: 10vh;
-          transform: translateX(-50%) scale(0.95);
-          align-items: center;
-          z-index: 5;
-        }
-      }
+/* Tiêu đề nổi bật hơn */
+.message-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
+}
 
-      @media (min-width: 721px) and (max-width: 1024px) {
-        /* Tablet ngang / laptop nhỏ */
-        .stage {
-          width: 80%;
-          max-width: 820px;
-          height: 380px;
-          margin: 30px auto;
-        }
-        .tile {
-          width: 120px;
-          height: 120px;
-          border-radius: 16px;
-        }
-        .t1 {
-          left: 70px;
-          top: 34px;
-          animation-duration: 6.2s;
-        }
-        .t2 {
-          right: 60px;
-          top: 28px;
-          animation-duration: 5.8s;
-        }
-        .t3 {
-          left: 120px;
-          bottom: 36px;
-          animation-duration: 7s;
-        }
-        .t4 {
-          right: 130px;
-          bottom: 56px;
-          animation-duration: 6.4s;
-        }
-        .glow {
-          display: block;
-          filter: blur(16px);
-          opacity: 0.55;
-        }
-        #love-message {
-          font-size: 1.25rem;
-        }
-        .cake {
-          font-size: 1.8rem;
-          left: 50%;
-          bottom: 10vh;
-          transform: translateX(-50%);
-          align-items: center;
-          z-index: 5;
-        }
-      }
+/* Nội dung & danh sách */
+.message-box p,
+.message-box li {
+  font-size: 1rem;
+  color: #fff;
+}
+.message-box ul {
+  list-style: none;
+  margin: 0.6rem 0;
+  padding: 0;
+}
+.message-box li {
+  margin: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
-      /* Màn hình lớn giữ giá trị mặc định */
-      @media (min-width: 1025px) {
-        .stage {
-          width: 560px;
-          height: 380px;
-          margin: 40px auto 10px;
-        }
-        .tile {
-          width: 140px;
-          height: 140px;
-          border-radius: 18px;
-        }
-        #love-message {
-          font-size: 1.35rem;
-        }
-      }
+
+/* Footer thêm emoji nhỏ */
+.message-box p:last-child::after {
+  content: " 🐵💖🎈";
+  animation: fadeIn 2s ease infinite alternate;
+}
+
+/* Bánh mini */
+.cake.mini {
+  position: fixed;
+  top: 80px;              /* hạ xuống cho cân với tiêu đề */
+  right: 40px;            /* đẩy vào nhẹ để trông tự nhiên hơn */
+  justify-self: center;
+  transform: scale(0.7);  /* vừa vặn, không quá to */
+  z-index: 999;
+  transition: all 0.5s ease;
+}
+/* Hiệu ứng khi di chuột vào bánh */
+.cake.mini:hover {
+  transform: scale(0.8) rotate(-3deg);
+}
+
+.cake.mini .knife,
+.cake.mini .birthday-text {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .cake.mini {
+    top: 70px;
+    right: 24px;
+    transform: scale(0.6);
+  }
+}
+
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .birthday-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 120px 2rem;
+  }
+  .birthday-photo {
+    width: 420px;
+    height: 500px;
+    margin-bottom: 0;
+  }
+  .message-box {
+    width: 420px;
+    font-size: 1rem;
+  }
+}
+
+/* =============================== */
+/* ✨ Hiệu ứng động sinh động hơn */
+/* =============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+@keyframes floatEmoji {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* 🎂 Bánh sinh nhật thu nhỏ lên góc */
+.cake.mini {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  transform: scale(0.6);
+  z-index: 999;
+  transition: all 0.6s ease;
+}
+.cake.mini .knife,
+.cake.mini .birthday-text {
+  display: none;
+}
+
+/* ============================== */
+/* 📱 Responsive cho thiết bị nhỏ */
+/* ============================== */
+@media (max-width: 1024px) {
+  .birthday-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .birthday-photo {
+    width: 95%;
+    max-width: 420px;
+    margin-bottom: 1.2rem;
+  }
+
+  .message-box {
+    width: 90%;
+    padding: 20px 18px;
+    font-size: 0.95rem;
+  }
+
+  .cake.mini {
+    top: 6px;
+    right: 8px;
+    transform: scale(0.5);
+  }
+}
+
+/* ============================== */
+/* 💻 Màn hình lớn (Laptop trở lên) */
+/* ============================== */
+@media (min-width: 1025px) {
+  .birthday-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 100px 2rem 60px;
+  }
+
+  .birthday-photo {
+    width: 420px;
+    height: auto;
+  }
+
+  .message-box {
+    width: 420px;
+    font-size: 1rem;
+  }
+}
+
+/* Responsive - cập nhật để tránh tràn và cân chỉnh cho điện thoại / tablet / laptop */
+@media (max-width: 420px) {
+  /* Điện thoại nhỏ */
+  .stage {
+    width: calc(100% - 32px);
+    max-width: 420px;
+    height: 320px;
+    margin: 18px auto;
+    padding: 6px;
+  }
+  .tile {
+    width: 92px;
+    height: 92px;
+    border-radius: 12px;
+  }
+  /* dùng tỉ lệ/px hợp lý để tránh tràn */
+  .t1 {
+    left: 6%;
+    top: 10px;
+    transform: rotate(-10deg);
+    animation-duration: 5.6s;
+  }
+  .t2 {
+    right: 6%;
+    top: 10px;
+    transform: rotate(6deg);
+    animation-duration: 5.2s;
+  }
+  .t3 {
+    left: 18%;
+    bottom: 12px;
+    transform: rotate(18deg);
+    animation-duration: 6.2s;
+  }
+  .t4 {
+    right: 18%;
+    bottom: 18px;
+    transform: rotate(-24deg);
+    animation-duration: 5.8s;
+  }
+  .glow {
+    display: none;
+  }
+  #love-message {
+    font-size: 1rem;
+    margin-top: 8px;
+    padding: 0 14px;
+  }
+  .cake {
+    font-size: 1.2rem;
+    left: 50%;
+    bottom: 10vh;
+    transform: translateX(-50%) scale(0.9);
+    gap: 8px;
+    align-items: center;
+    z-index: 5;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 720px) {
+  /* Điện thoại lớn / small tablet */
+  .stage {
+    width: 92%;
+    max-width: 680px;
+    height: 340px;
+    margin: 24px auto;
+  }
+  .tile {
+    width: 110px;
+    height: 110px;
+    border-radius: 14px;
+  }
+  .t1 {
+    left: 7%;
+    top: 16px;
+    transform: rotate(-12deg);
+    animation-duration: 6s;
+  }
+  .t2 {
+    right: 7%;
+    top: 14px;
+    transform: rotate(8deg);
+    animation-duration: 5.6s;
+  }
+  .t3 {
+    left: 22%;
+    bottom: 18px;
+    transform: rotate(20deg);
+    animation-duration: 6.6s;
+  }
+  .t4 {
+    right: 22%;
+    bottom: 30px;
+    transform: rotate(-28deg);
+    animation-duration: 6s;
+  }
+  .glow {
+    opacity: 0.45;
+    filter: blur(14px);
+  }
+  #love-message {
+    font-size: 1.12rem;
+  }
+  .cake {
+    font-size: 1.4rem;
+    left: 50%;
+    bottom: 10vh;
+    transform: translateX(-50%) scale(0.95);
+    align-items: center;
+    z-index: 5;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  /* Tablet ngang / laptop nhỏ */
+  .stage {
+    width: 80%;
+    max-width: 820px;
+    height: 380px;
+    margin: 30px auto;
+  }
+  .tile {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+  }
+  .t1 {
+    left: 70px;
+    top: 34px;
+    animation-duration: 6.2s;
+  }
+  .t2 {
+    right: 60px;
+    top: 28px;
+    animation-duration: 5.8s;
+  }
+  .t3 {
+    left: 120px;
+    bottom: 36px;
+    animation-duration: 7s;
+  }
+  .t4 {
+    right: 130px;
+    bottom: 56px;
+    animation-duration: 6.4s;
+  }
+  .glow {
+    display: block;
+    filter: blur(16px);
+    opacity: 0.55;
+  }
+  #love-message {
+    font-size: 1.25rem;
+  }
+  .cake {
+    font-size: 1.8rem;
+    left: 50%;
+    bottom: 10vh;
+    transform: translateX(-50%);
+    align-items: center;
+    z-index: 5;
+  }
+}
+/* 🌸 Hiệu ứng biểu tượng bay sinh nhật */
+.floating-icon {
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+  z-index: 200;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.8) rotate(20deg);
+    opacity: 0;
+  }
+}
