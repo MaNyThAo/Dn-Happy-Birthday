@@ -809,3 +809,28 @@ body {
     opacity: 0;
   }
 }
+  .birthday-card {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem; /* ↓ Giảm nhẹ so với trước */
+    color: #3a2e2e;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .birthday-card h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.7rem; /* ↓ Nhỏ hơn một chút */
+    color: #f7b731;
+    margin-bottom: 1rem;
+  }
+
+  .birthday-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .birthday-card li {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.1rem; /* ↓ Giảm nhẹ */
+    margin-bottom: 0.3rem;
+  }
