@@ -1101,3 +1101,194 @@ body {
     height: 40px;
   }
 }
+/* ===============================
+   📱 Tối ưu cho iPhone SE & Android nhỏ (<= 400px)
+   =============================== */
+@media (max-width: 400px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto !important; /* Cho phép cuộn dọc toàn bộ */
+    height: auto;
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(180deg, #ffd6e7 0%, #ffb6c1 50%, #ff9bb3 100%);
+    background-attachment: fixed;
+  }
+
+  .birthday-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 50px 10px 120px; /* ↓ giảm padding top để nhìn thấy cả ảnh và lời chúc */
+    gap: 16px;
+    box-sizing: border-box;
+    overflow-y: visible;
+  }
+
+  /* Ảnh sinh nhật hiển thị trọn */
+  .birthday-photo {
+    width: 95%;
+    max-width: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(255, 120, 150, 0.3);
+  }
+
+  .birthday-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Lời chúc vừa khung */
+  .message-box {
+    width: 95%;
+    max-width: 340px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+    box-shadow: 0 6px 24px rgba(255, 100, 150, 0.28);
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 16px 12px 22px;
+    text-align: center;
+  }
+
+  .message-box h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Bánh sinh nhật mini 🎂 */
+  .cake.mini {
+    position: fixed;
+    top: 52px;
+    right: 12px;
+    transform: scale(0.58);
+    z-index: 999;
+  }
+
+  /* Biểu tượng bay nhỏ gọn hơn */
+  .floating-icon, .floating-heart {
+    max-width: 30px;
+    max-height: 30px;
+    opacity: 0.9;
+  }
+
+  /* Giữ khoảng trống cuối để cuộn xuống hết nội dung */
+  body::after {
+    content: "";
+    display: block;
+    height: 60px;
+  }
+}
+/* ===============================
+   🍎 iPhone 8 Plus (414 × 736)
+   =============================== */
+@media (min-width: 401px) and (max-width: 430px) {
+  html, body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto !important; /* Cho phép cuộn toàn bộ nội dung */
+    background: linear-gradient(180deg, #ffd6e7 0%, #ffb6c1 50%, #ff9bb3 100%);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .birthday-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 80px 14px 120px;
+    gap: 22px;
+    box-sizing: border-box;
+  }
+
+  /* Ảnh chúc mừng */
+  .birthday-photo {
+    width: 95%;
+    max-width: 380px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(255, 120, 150, 0.35);
+  }
+
+  .birthday-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Khung lời chúc */
+  .message-box {
+    width: 95%;
+    max-width: 380px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+    color: #fff;
+    font-size: 0.96rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 22px 16px 26px;
+    box-shadow: 0 6px 28px rgba(255, 100, 150, 0.3);
+  }
+
+  .message-box h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .message-box p, .message-box li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  /* 🎂 Bánh mini góc trên */
+  .cake.mini {
+    position: fixed;
+    top: 60px;
+    right: 16px;
+    transform: scale(0.65);
+    z-index: 999;
+  }
+
+  /* 🎈 Icon bay nhỏ gọn */
+  .floating-icon, .floating-heart {
+    max-width: 34px;
+    max-height: 34px;
+    opacity: 0.9;
+  }
+
+  /* 🎵 Nút mở nhạc */
+  .music-btn, #playMusicBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    z-index: 10;
+  }
+
+  /* Khoảng trống cuối trang để cuộn hết */
+  body::after {
+    content: "";
+    display: block;
+    height: 80px;
+  }
+}
