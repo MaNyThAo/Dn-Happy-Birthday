@@ -999,3 +999,105 @@ body {
     max-height: 34px;
   }
 }
+/* ===============================
+   🍎 iPhone SE / Android nhỏ (~375px)
+   =============================== */
+@media (max-width: 400px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(180deg, #ffd6e7 0%, #ffb6c1 50%, #ff9bb3 100%);
+    background-attachment: fixed;
+  }
+
+  .birthday-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 68px 10px 100px;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  /* Ảnh sinh nhật */
+  .birthday-photo {
+    width: 95%;
+    max-width: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(255, 120, 150, 0.35);
+  }
+
+  .birthday-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Hộp lời chúc */
+  .message-box {
+    width: 95%;
+    max-width: 340px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ff7eb3 0%, #ffb6c1 100%);
+    box-shadow: 0 6px 28px rgba(255, 100, 150, 0.3);
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 16px 12px 22px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .message-box h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .message-box p, .message-box li {
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* 🎂 Icon bánh sinh nhật mini */
+  .cake.mini {
+    position: fixed;
+    top: 52px;
+    right: 12px;
+    transform: scale(0.58);
+    z-index: 999;
+  }
+
+  /* 🎈 Emoji / icon bay nhỏ gọn */
+  .floating-icon, .floating-heart {
+    max-width: 32px;
+    max-height: 32px;
+    opacity: 0.9;
+  }
+
+  /* 🧁 Nút mở nhạc căn giữa, không bị che */
+  .music-btn, .open-music {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    z-index: 10;
+  }
+
+  /* 💫 Tăng nhẹ khoảng trống dưới để kéo xem hết */
+  body::after {
+    content: "";
+    display: block;
+    height: 40px;
+  }
+}
